@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block content %}
+<ul class="nav nav-fill posts-blog-select" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" href="#" data-toggle="tab" role="tab" data-hamband-to-show="events">رویدادها</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#" data-toggle="tab" role="tab" data-hamband-to-show="blog--posts">اخبار</a>
+    </li>
+</ul>
+<br>
+<div class="ui container tab-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="blog--posts">
+                    {% for post in posts %}
+                    <div class="card">
+                        <img src="/static/images/p1.jpg" class="card-img-top" alt="{{ post.subject }}">
+                        <div class="card-body">
+                            <h3 class="card-title">
+                                <a href="#">
+                                    {{ post.subject }}
+                                </a>
+                            </h3>
+                            <div class="card-text">
+                                <div class="meta small">
+
+                                    <span class="date">
+                                        {{ post.published_at|naturaltime }}
+                                    </span>
+                                </div>
+                                <div class="description">
+                                    {{ post.content|linebreaksbr }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <a href="#" class="card-link btn btn-light">
+                                ادامه »
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="row events no-gutters active">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <a href="#">
+                                <img src="/static/images/event.jpg" class="card-img-top" alt="...">
+                            </a>
+                            <div class="card-body">
+                                <h2 class="card-title">
+                                    <a href="#">
+                                        ایونت
+                                    </a>
+                                </h2>
+                                <div class="card-text">
+                                    <div class="meta small">
+
+                                        <span class="date">پنج‌شنبه ۱۶ آبان</span>
+                                    </div>
+                                    <div class="description">
+                                        یک ایونت جذاب دیگر از طرف انجمن علمی
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <a href="#">
+                                <img src="/static/images/event.jpg" class="card-img-top" alt="...">
+                            </a>
+                            <div class="card-body">
+                                <h2 class="card-title">
+                                    <a href="#">
+                                        ایونت
+                                    </a>
+                                </h2>
+                                <div class="card-text">
+                                    <div class="meta small">
+
+                                        <span class="date">پنج‌شنبه ۱۶ آبان</span>
+                                    </div>
+                                    <div class="description">
+                                        یک ایونت جذاب دیگر از طرف انجمن علمی
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -88,6 +88,7 @@ local_settings.py
 .env
 db.sqlite3
 
+base/local_settings.py
 
 # Pycharm
 .idea/
